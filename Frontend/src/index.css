@@ -1,0 +1,88 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.NavBar{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    justify-content: flex-start;
+    margin-bottom: 70px;
+}
+
+.NavBar a {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: #2471a3;
+}
+
+.contenedor-form {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    height: 99%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    background-color: #154360;
+    color: #f0f3f4;
+    margin: 20px;
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.formulario label {
+    padding: 10px 0;
+    color: #f0f3f4;
+}
+
+.formulario input {
+    margin: 10px 5px;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn {
+    padding: 10px;
+    margin: 15px 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+}
+
+.errorFrom {
+    display: flex;
+    background-color: #2471a3;
+    color: #f0f3f4;
+    height: 50px;
+    width: 30%; 
+    padding: 15px;
+    border-radius: 5px;   
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sesion de Login */
+
+.btnLogout {
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #2471a3;
+    color: #f0f3f4;
+    border-radius: 5px;
+    width: 80px;
+    cursor: pointer;
+}
