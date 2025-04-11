@@ -17,19 +17,33 @@ module.exports.login = (req, res) => {
          * Ejecuta la consulta MySql
          */
         connection.query(consult, [username, password], (err, result) => {
-            if (err) { res.send(err) };
 
+            /**
+             * Validaciones de la consulta del Server:
+             * 1° Si hay errores en el servidor
+             * 2° Verifica si el Usuario existe
+             * 3° Verifica si la contraseña coincide con la almacenada en la BD
+             * 4° Si existe el Usuario le genera un token
+             */
+            if(err){
+                return res.status(500).json({error: "Error en el servidor"});
+            }
+            
+            if (result.length === 0) {
+                return res.status(401).json({ message: "Usuario no existe" });
+            }
+            
+            if (result[0].password !== password) {
+                return res.status(401).json({ error: "Error contraseña incorrecta" });
+            }
+            
             if (result.length > 0) {
-
-                const token = jwt.sign({username}, "Stack", {
+                const token = jwt.sign({ username }, "Stack", {
                     expiresIn: '3m'
                 });
-                res.send({token});
-            } else { 
-                message: "Usuario no existe";
-                console.log("Usuario no existe");
-                res.send("Usuario no existe");
-            }
+                res.send({ token });
+            };
+
         })
     } catch (error) {
 
